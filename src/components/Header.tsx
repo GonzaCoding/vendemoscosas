@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { ShoppingCart } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { CartButton } from './CartButton';
 
 export function Header() {
   return (
@@ -11,10 +10,7 @@ export function Header() {
         </Link>
 
         <div className='flex items-center space-x-4'>
-          <Button variant='ghost' size='icon' className='relative'>
-            <ShoppingCart className='h-5 w-5' />
-            <span className='sr-only'>Cart</span>
-          </Button>
+          <CartButton />
         </div>
       </div>
     </header>

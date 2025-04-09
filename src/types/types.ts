@@ -73,3 +73,12 @@ export type Readonly<T> = {
 export type Partial<T> = {
   [P in keyof T]?: T[P];
 };
+
+export interface CartContextType {
+  items: CartItem[];
+  addItem: (item: CartItem) => void;
+  removeItem: (id: string) => void;
+  clearCart: () => void;
+  isInCart: (id: string) => boolean;
+  total: number;
+}

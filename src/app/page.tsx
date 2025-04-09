@@ -4,13 +4,20 @@ import { Header } from '@/components/Header';
 import { Container } from '@/components/Container';
 import { ProductList } from '@/components/ProductList';
 import { useProducts } from '@/hooks/useProducts';
+import { useCart } from '@/contexts/CartContext';
+import { Product } from '@/types/types';
 
 export default function Home() {
   const { products, isLoading, error } = useProducts();
+  const { addItem } = useCart();
 
-  const handleAddToCart = (product: any) => {
-    // TODO: Implement cart functionality
-    console.log('Added to cart:', product);
+  const handleAddToCart = (product: Product) => {
+    addItem({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      sold: product.sold,
+    });
   };
 
   return (
