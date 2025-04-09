@@ -1,11 +1,29 @@
 [
   {
     "id": "product-1",
-    "title": "Vintage Chair",
-    "price": 100,
-    "description": "Comfortable and stylish.",
+    "title": "Vintage Wooden Chair",
+    "price": 120,
+    "description": "Beautiful vintage wooden chair with intricate carvings. Perfect for adding character to any room.",
     "category": "Furniture",
     "sold": false,
     "images": ["/images/product-1-1.jpg", "/images/product-1-2.jpg"]
+  },
+  {
+    "id": "product-2",
+    "title": "Antique Brass Lamp",
+    "price": 85,
+    "description": "Elegant brass table lamp with a classic design. Includes a new LED bulb.",
+    "category": "Lighting",
+    "sold": false,
+    "images": ["/images/product-2-1.jpg", "/images/product-2-2.jpg"]
+  },
+  {
+    "id": "product-3",
+    "title": "Handmade Ceramic Vase",
+    "price": 65,
+    "description": "Unique ceramic vase with a modern design. Perfect for displaying fresh flowers.",
+    "category": "Decor",
+    "sold": true,
+    "images": ["/images/product-3-1.jpg", "/images/product-3-2.jpg"]
   }
 ]

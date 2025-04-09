@@ -1,49 +1,31 @@
-import { useState, useEffect } from 'react';
-import type { Product } from '@/types/types';
+'use client';
 
-export function useProducts(): {
-  products: Product[];
-  loading: boolean;
-  error: string | null;
-  getProductById: (id: string) => Product | undefined;
-  getAvailableProducts: () => Product[];
-} {
+import { useState, useEffect } from 'react';
+import type { Product } from '@/types/product';
+
+export function useProducts() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    async function fetchProducts() {
+    const fetchProducts = async () => {
       try {
         const response = await fetch('/data/products.json');
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
+        if (!response.ok) throw new Error('Failed to fetch products');
         const data = await response.json();
         setProducts(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(
+          err instanceof Error ? err : new Error('Unknown error occurred')
+        );
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
-    }
+    };
 
     fetchProducts();
   }, []);
 
-  const getProductById = (id: string) => {
-    return products.find((product) => product.id === id);
-  };
-
-  const getAvailableProducts = () => {
-    return products.filter((product) => !product.sold);
-  };
-
-  return {
-    products,
-    loading,
-    error,
-    getProductById,
-    getAvailableProducts,
-  };
+  return { products, isLoading, error };
 }
