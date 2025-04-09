@@ -4,7 +4,7 @@ import {
   STORAGE_KEYS,
   getFromStorage,
   setInStorage,
-} from '../lib/utils/storage';
+} from '../lib/storage';
 
 const DEFAULT_CART: Cart = {
   items: [],
