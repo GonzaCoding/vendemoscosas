@@ -45,6 +45,7 @@ export interface FilterState {
   setSearchQuery: (query: string) => void;
   setSelectedCategory: (category: Category | null) => void;
   clearFilters: () => void;
+  categories: Category[];
 }
 
 /**

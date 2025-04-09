@@ -1,6 +1,7 @@
+import { Product } from '@/types/types';
 import { ProductCard } from '@/components/ProductCard';
 import { Skeleton } from '@/components/ui/skeleton';
-import type { Product } from '@/types/types';
+import { useFilter } from '@/contexts/FilterContext';
 
 interface ProductListProps {
   products: Product[];
@@ -15,6 +16,23 @@ export function ProductList({
   error,
   onAddToCart,
 }: ProductListProps) {
+  const { searchQuery, selectedCategory } = useFilter();
+
+  const filteredProducts = products.filter((product) => {
+    if (product.sold) return false;
+
+    const matchesSearch = searchQuery
+      ? product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase())
+      : true;
+
+    const matchesCategory = selectedCategory
+      ? product.category === selectedCategory.name
+      : true;
+
+    return matchesSearch && matchesCategory;
+  });
+
   if (error) {
     return (
       <div className='flex h-32 items-center justify-center rounded-lg border border-dashed'>
@@ -40,11 +58,11 @@ export function ProductList({
     );
   }
 
-  if (products.length === 0) {
+  if (filteredProducts.length === 0) {
     return (
       <div className='flex h-32 items-center justify-center rounded-lg border border-dashed'>
         <p className='text-center text-sm text-muted-foreground'>
-          No products found.
+          No products found. Try adjusting your filters.
         </p>
       </div>
     );
@@ -52,7 +70,7 @@ export function ProductList({
 
   return (
     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <ProductCard
           key={product.id}
           product={product}
