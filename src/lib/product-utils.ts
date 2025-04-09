@@ -70,12 +70,22 @@ function isValidProduct(product: unknown): product is Product {
 }
 
 /**
- * Extracts unique categories from products array
+ * Extracts unique categories from products array with their counts
  */
 export function getCategories(products: Product[]): Category[] {
-  const categories = new Set<Category>();
-  products.forEach((product) => categories.add(product.category));
-  return Array.from(categories).sort();
+  const categoryMap = new Map<string, number>();
+
+  products.forEach((product) => {
+    if (!product.sold) {
+      const count = categoryMap.get(product.category) || 0;
+      categoryMap.set(product.category, count + 1);
+    }
+  });
+
+  return Array.from(categoryMap.entries()).map(([name, count]) => ({
+    name,
+    count,
+  }));
 }
 
 /**
@@ -84,7 +94,7 @@ export function getCategories(products: Product[]): Category[] {
 export function filterProducts(
   products: Product[],
   searchQuery: string,
-  selectedCategory: Category | null,
+  selectedCategory: string | null,
   includeSold: boolean = false
 ): Product[] {
   return products.filter((product) => {

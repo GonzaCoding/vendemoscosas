@@ -6,7 +6,7 @@ export interface Product {
   title: string;
   price: number;
   description: string;
-  category: Category;
+  category: string;
   sold: boolean;
   images: string[];
 }
@@ -14,23 +14,26 @@ export interface Product {
 /**
  * Cart item type representing a product in the cart
  */
-export type CartItem = Product;
-
-/**
- * Category type representing product categories
- * Generated dynamically from the products.json data
- */
-export type Category = string;
+export interface CartItem {
+  id: string;
+  title: string;
+  price: number;
+  sold: boolean;
+}
 
 /**
  * Cart state interface for managing the shopping cart
  */
-export interface CartState {
+export interface Cart {
   items: CartItem[];
-  addItem: (product: Product) => void;
-  removeItem: (productId: string) => void;
-  clearCart: () => void;
-  isInCart: (productId: string) => boolean;
+}
+
+/**
+ * Category type representing product categories with count
+ */
+export interface Category {
+  name: string;
+  count: number;
 }
 
 /**
