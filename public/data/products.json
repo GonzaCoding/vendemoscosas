@@ -25,5 +25,32 @@
     "category": "Decor",
     "sold": true,
     "images": ["/images/product-3-1.jpg", "/images/product-3-2.jpg"]
+  },
+  {
+    "id": "product-4",
+    "title": "Mid-Century Coffee Table",
+    "price": 250,
+    "description": "Stunning mid-century modern coffee table with walnut finish and tapered legs. Perfect for any living room.",
+    "category": "Furniture",
+    "sold": false,
+    "images": ["/images/product-4-1.jpg", "/images/product-4-2.jpg"]
+  },
+  {
+    "id": "product-5",
+    "title": "Art Deco Wall Mirror",
+    "price": 180,
+    "description": "Elegant Art Deco style wall mirror with geometric patterns. Adds sophistication to any space.",
+    "category": "Decor",
+    "sold": false,
+    "images": ["/images/product-5-1.jpg", "/images/product-5-2.jpg"]
+  },
+  {
+    "id": "product-6",
+    "title": "Industrial Pendant Light",
+    "price": 95,
+    "description": "Modern industrial pendant light with adjustable height. Perfect for kitchen islands or dining areas.",
+    "category": "Lighting",
+    "sold": false,
+    "images": ["/images/product-6-1.jpg", "/images/product-6-2.jpg"]
   }
 ]
