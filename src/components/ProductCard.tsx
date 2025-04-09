@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import type { Product } from '@/types/product';
+import type { Product } from '@/types/types';
 
 interface ProductCardProps {
   product: Product;
