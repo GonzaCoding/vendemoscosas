@@ -6,6 +6,7 @@ import type { Product } from '@/types/types';
 import { useState } from 'react';
 import { ProductDrawer } from './ProductDrawer';
 import { getPrimaryImage } from '@/lib/product-utils';
+import { useCart } from '@/contexts/CartContext';
 
 interface ProductCardProps {
   product: Product;
@@ -14,11 +15,12 @@ interface ProductCardProps {
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { isInCart } = useCart();
 
   return (
     <>
       <article
-        className='group relative flex flex-col overflow-hidden rounded-lg border bg-background cursor-pointer max-w-sm mx-auto'
+        className='group relative flex flex-col overflow-hidden rounded-lg border bg-background cursor-pointer w-full'
         onClick={() => setIsDrawerOpen(true)}
       >
         <div className='relative w-full h-[250px] bg-muted/20'>
@@ -33,9 +35,6 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
         <div className='flex flex-1 flex-col space-y-2 p-4'>
           <h3 className='text-lg font-medium'>{product.title}</h3>
-          <p className='text-sm text-muted-foreground line-clamp-2'>
-            {product.description}
-          </p>
           <div className='mt-auto flex items-center justify-between'>
             <span className='text-lg font-bold'>${product.price}</span>
             <Button
@@ -43,10 +42,14 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
                 e.stopPropagation();
                 onAddToCart(product);
               }}
-              disabled={product.sold}
+              disabled={product.sold || isInCart(product.id)}
               size='sm'
             >
-              {product.sold ? 'Sold' : 'Add to Cart'}
+              {product.sold
+                ? 'Sold'
+                : isInCart(product.id)
+                ? 'Added to Cart'
+                : 'Add to Cart'}
             </Button>
           </div>
         </div>

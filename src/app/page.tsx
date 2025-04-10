@@ -35,9 +35,13 @@ export default function Home() {
             <p className='text-muted-foreground mb-8'>
               Browse our collection of items for sale.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 mb-8'>
-              <SearchInput />
-              <CategoryFilter />
+            <div className='flex flex-col sm:flex-row gap-4 mb-8 w-full'>
+              <div className='w-full sm:w-auto'>
+                <SearchInput />
+              </div>
+              <div className='w-full sm:w-auto'>
+                <CategoryFilter />
+              </div>
             </div>
             <ProductList
               products={products}

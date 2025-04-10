@@ -48,7 +48,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
   };
 
   return (
-    <Drawer open={!!product} onOpenChange={onClose}>
+    <Drawer open={!!product} onOpenChange={onClose} direction='right'>
       <DrawerContent className='h-[90vh] max-w-3xl mx-auto'>
         <div className='flex flex-col h-full'>
           <DrawerHeader className='flex-none'>
@@ -106,11 +106,6 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
               </div>
 
               <p className='text-muted-foreground'>{product.description}</p>
-
-              <div className='flex items-center gap-2'>
-                <span className='text-sm text-muted-foreground'>Category:</span>
-                <span className='text-sm font-medium'>{product.category}</span>
-              </div>
             </div>
           </div>
 

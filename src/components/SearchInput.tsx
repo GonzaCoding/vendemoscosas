@@ -16,7 +16,7 @@ export function SearchInput() {
   }, [debouncedValue, setSearchQuery]);
 
   return (
-    <div className='relative w-full max-w-sm'>
+    <div className='relative w-full'>
       <Search className='absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground' />
       <Input
         type='search'
