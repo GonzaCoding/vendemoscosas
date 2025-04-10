@@ -2,13 +2,13 @@
  * Product interface representing a single item in the store
  */
 export interface Product {
-  id: string;
+  id: string; // e.g. '001', '002', '003'
   title: string;
   price: number;
   description: string;
   category: string;
   sold: boolean;
-  images: string[];
+  imageCount: number; // Number of images available for this product
 }
 
 /**

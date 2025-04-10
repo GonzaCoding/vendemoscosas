@@ -11,7 +11,8 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer';
 import { useCart } from '@/contexts/CartContext';
-import { Product } from '@/types/types';
+import type { Product } from '@/types/types';
+import { getProductImagePath } from '@/lib/product-utils';
 
 interface ProductDrawerProps {
   product: Product | null;
@@ -26,13 +27,13 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? product.images.length - 1 : prev - 1
+      prev === 0 ? product.imageCount - 1 : prev - 1
     );
   };
 
   const handleNextImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === product.images.length - 1 ? 0 : prev + 1
+      prev === product.imageCount - 1 ? 0 : prev + 1
     );
   };
 
@@ -48,7 +49,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
 
   return (
     <Drawer open={!!product} onOpenChange={onClose}>
-      <DrawerContent className='h-[90vh]'>
+      <DrawerContent className='h-[90vh] max-w-3xl mx-auto'>
         <div className='flex flex-col h-full'>
           <DrawerHeader className='flex-none'>
             <div className='flex items-center justify-between'>
@@ -61,36 +62,38 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
 
           <div className='flex-1 overflow-y-auto'>
             {/* Image Carousel */}
-            <div className='relative aspect-square w-full'>
-              <Image
-                src={product.images[currentImageIndex]}
-                alt={product.title}
-                fill
-                className='object-cover'
-                priority
-              />
+            <div className='relative w-full flex justify-center items-center bg-muted/20'>
+              <div className='relative w-full max-w-2xl h-[350px]'>
+                <Image
+                  src={getProductImagePath(product.id, currentImageIndex + 1)}
+                  alt={product.title}
+                  fill
+                  className='object-contain'
+                  priority
+                />
 
-              {/* Navigation Buttons */}
-              {product.images.length > 1 && (
-                <>
-                  <Button
-                    variant='ghost'
-                    size='icon'
-                    className='absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90'
-                    onClick={handlePrevImage}
-                  >
-                    <ChevronLeft className='h-4 w-4' />
-                  </Button>
-                  <Button
-                    variant='ghost'
-                    size='icon'
-                    className='absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90'
-                    onClick={handleNextImage}
-                  >
-                    <ChevronRight className='h-4 w-4' />
-                  </Button>
-                </>
-              )}
+                {/* Navigation Buttons */}
+                {product.imageCount > 1 && (
+                  <>
+                    <Button
+                      variant='ghost'
+                      size='icon'
+                      className='absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90'
+                      onClick={handlePrevImage}
+                    >
+                      <ChevronLeft className='h-4 w-4' />
+                    </Button>
+                    <Button
+                      variant='ghost'
+                      size='icon'
+                      className='absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90'
+                      onClick={handleNextImage}
+                    >
+                      <ChevronRight className='h-4 w-4' />
+                    </Button>
+                  </>
+                )}
+              </div>
             </div>
 
             {/* Product Details */}

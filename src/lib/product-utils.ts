@@ -1,4 +1,4 @@
-import { Product, Category } from '@/types/types';
+import type { Product, Category } from '@/types/types';
 
 /**
  * Creates a custom error for product-related issues
@@ -118,31 +118,36 @@ export function filterProducts(
 }
 
 /**
- * Validates if an image path exists and is in the correct format
+ * Gets the image path for a product
+ * @param productId The product ID (e.g. '001')
+ * @param imageNumber The image number (e.g. 1, 2, 3)
+ * @returns The path to the image
  */
-export function isValidImagePath(path: string): boolean {
-  // Check if path starts with /images/ and ends with .jpg
-  if (!path.startsWith('/images/') || !path.endsWith('.jpg')) {
-    return false;
-  }
-
-  // Check if path follows the format: /images/product-{id}-{index}.jpg
-  const parts = path.split('/').pop()?.split('-');
-  if (!parts || parts.length !== 3) return false;
-
-  const [prefix, id, index] = parts;
-  if (prefix !== 'product') return false;
-
-  // Check if id and index are valid numbers
-  const indexNum = parseInt(index.replace('.jpg', ''));
-  return !isNaN(parseInt(id)) && !isNaN(indexNum);
+export function getProductImagePath(
+  productId: string,
+  imageNumber: number
+): string {
+  return `/${productId}/${imageNumber.toString().padStart(2, '0')}.jpeg`;
 }
 
 /**
- * Gets the first valid image path from a product's images array
- * Falls back to a placeholder image if no valid images are found
+ * Gets all available images for a product
+ * @param productId The product ID (e.g. '001')
+ * @param imageCount The number of images available for the product
+ * @returns Array of image paths
  */
-export function getPrimaryImage(product: Product): string {
-  const validImage = product.images.find(isValidImagePath);
-  return validImage || '/images/placeholder.jpg';
+export function getProductImages(
+  productId: string,
+  imageCount: number
+): string[] {
+  return Array.from({ length: imageCount }, (_, i) =>
+    getProductImagePath(productId, i + 1)
+  );
+}
+
+/**
+ * Gets the primary image for a product
+ */
+export function getPrimaryImage(productId: string): string {
+  return getProductImagePath(productId, 1);
 }

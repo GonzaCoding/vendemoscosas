@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Product } from '@/types/types';
+import type { Product } from '@/types/types';
 import { useState } from 'react';
 import { ProductDrawer } from './ProductDrawer';
+import { getPrimaryImage } from '@/lib/product-utils';
 
 interface ProductCardProps {
   product: Product;
@@ -17,16 +18,15 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
     <>
       <article
-        className='group relative flex flex-col overflow-hidden rounded-lg border bg-background cursor-pointer'
+        className='group relative flex flex-col overflow-hidden rounded-lg border bg-background cursor-pointer max-w-sm mx-auto'
         onClick={() => setIsDrawerOpen(true)}
       >
-        <div className='aspect-square overflow-hidden'>
+        <div className='relative w-full h-[250px] bg-muted/20'>
           <Image
-            src={product.images[0]}
+            src={getPrimaryImage(product.id)}
             alt={product.title}
-            width={500}
-            height={500}
-            className='h-full w-full object-cover transition-transform group-hover:scale-105'
+            fill
+            className='object-contain'
             priority={false}
           />
         </div>

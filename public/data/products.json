@@ -1,56 +1,56 @@
 [
   {
-    "id": "product-1",
+    "id": "001",
     "title": "Vintage Wooden Chair",
     "price": 120,
     "description": "Beautiful vintage wooden chair with intricate carvings. Perfect for adding character to any room.",
     "category": "Furniture",
     "sold": false,
-    "images": ["/images/product-1-1.jpg", "/images/product-1-2.jpg"]
+    "imageCount": 3
   },
   {
-    "id": "product-2",
+    "id": "002",
     "title": "Antique Brass Lamp",
     "price": 85,
     "description": "Elegant brass table lamp with a classic design. Includes a new LED bulb.",
     "category": "Lighting",
     "sold": false,
-    "images": ["/images/product-2-1.jpg", "/images/product-2-2.jpg"]
+    "imageCount": 2
   },
   {
-    "id": "product-3",
+    "id": "003",
     "title": "Handmade Ceramic Vase",
     "price": 65,
     "description": "Unique ceramic vase with a modern design. Perfect for displaying fresh flowers.",
     "category": "Decor",
     "sold": true,
-    "images": ["/images/product-3-1.jpg", "/images/product-3-2.jpg"]
+    "imageCount": 2
   },
   {
-    "id": "product-4",
+    "id": "004",
     "title": "Mid-Century Coffee Table",
     "price": 250,
     "description": "Stunning mid-century modern coffee table with walnut finish and tapered legs. Perfect for any living room.",
     "category": "Furniture",
     "sold": false,
-    "images": ["/images/product-4-1.jpg", "/images/product-4-2.jpg"]
+    "imageCount": 2
   },
   {
-    "id": "product-5",
+    "id": "005",
     "title": "Art Deco Wall Mirror",
     "price": 180,
     "description": "Elegant Art Deco style wall mirror with geometric patterns. Adds sophistication to any space.",
     "category": "Decor",
     "sold": false,
-    "images": ["/images/product-5-1.jpg", "/images/product-5-2.jpg"]
+    "imageCount": 2
   },
   {
-    "id": "product-6",
+    "id": "006",
     "title": "Industrial Pendant Light",
     "price": 95,
     "description": "Modern industrial pendant light with adjustable height. Perfect for kitchen islands or dining areas.",
     "category": "Lighting",
     "sold": false,
-    "images": ["/images/product-6-1.jpg", "/images/product-6-2.jpg"]
+    "imageCount": 2
   }
 ]
