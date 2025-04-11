@@ -20,6 +20,7 @@ import { useRouter } from 'next/navigation';
 import { ProductDrawer } from '@/components/ProductDrawer';
 import type { Product, CartItem } from '@/types/types';
 import { loadProducts } from '@/lib/product-utils';
+import { formatPrice } from '@/lib/price-utils';
 
 function CartHeader() {
   const router = useRouter();
@@ -65,8 +66,8 @@ export default function CheckoutPage() {
 
   const generateWhatsAppMessage = () => {
     const message = `Hola! 👋\nMe interesan estos productos:\n${availableItems
-      .map((item) => `- ${item.title} – $${item.price}`)
-      .join('\n')}\nTotal: $${total}`;
+      .map((item) => `- ${item.title} – ${formatPrice(item.price)}`)
+      .join('\n')}\nTotal: ${formatPrice(total)}`;
     return encodeURIComponent(message);
   };
 
@@ -107,7 +108,9 @@ export default function CheckoutPage() {
                 >
                   <div>
                     <h3 className='font-medium'>{item.title}</h3>
-                    <p className='text-muted-foreground'>${item.price}</p>
+                    <p className='text-muted-foreground'>
+                      {formatPrice(item.price)}
+                    </p>
                     {item.sold && (
                       <span className='text-sm text-destructive'>Sold</span>
                     )}
@@ -134,7 +137,7 @@ export default function CheckoutPage() {
         <div className='container container max-w-3xl mx-auto'>
           <div className='flex justify-between items-center mb-4'>
             <span className='text-lg font-medium'>Total</span>
-            <span className='text-2xl font-bold'>${total}</span>
+            <span className='text-2xl font-bold'>{formatPrice(total)}</span>
           </div>
 
           {availableItems.length > 0 ? (

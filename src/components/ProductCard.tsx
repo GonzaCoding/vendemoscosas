@@ -9,6 +9,7 @@ import { getPrimaryImage } from '@/lib/product-utils';
 import { useCart } from '@/contexts/CartContext';
 import { Plus, Trash2 } from 'lucide-react';
 import { trackProductView, trackAddToCart } from '@/lib/analytics';
+import { formatPrice } from '@/lib/price-utils';
 
 interface ProductCardProps {
   product: Product;
@@ -55,7 +56,9 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
         <div className='flex flex-1 flex-col space-y-2 p-4'>
           <h3 className='text-lg font-medium'>{product.title}</h3>
           <div className='mt-auto flex items-center justify-between'>
-            <span className='text-lg font-bold'>${product.price}</span>
+            <span className='text-lg font-bold'>
+              {formatPrice(product.price)}
+            </span>
             <Button
               onClick={handleCartAction}
               variant={isProductInCart ? 'destructive' : 'default'}

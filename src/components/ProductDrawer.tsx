@@ -15,6 +15,7 @@ import type { Product } from '@/types/types';
 import { getProductImagePath } from '@/lib/product-utils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { trackAddToCart } from '@/lib/analytics';
+import { formatPrice } from '@/lib/price-utils';
 
 interface ProductDrawerProps {
   product: Product | null;
@@ -126,7 +127,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
             <div className='p-4 space-y-4 transition-colors duration-300'>
               <div className='flex items-center justify-between'>
                 <span className='text-2xl font-bold transition-colors duration-300'>
-                  ${product.price}
+                  {formatPrice(product.price)}
                 </span>
                 {product.sold && (
                   <span className='text-sm text-muted-foreground transition-colors duration-300'>
