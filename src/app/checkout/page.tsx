@@ -144,7 +144,7 @@ export default function CheckoutPage() {
             >
               Contactanos por WhatsApp
               <Image
-                src='/icons/whatsapp.svg'
+                src='/whatsapp.svg'
                 alt='WhatsApp'
                 width={16}
                 height={16}
@@ -167,15 +167,15 @@ export default function CheckoutPage() {
       <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Ready to Checkout?</AlertDialogTitle>
+            <AlertDialogTitle>Ready para contactarnos?</AlertDialogTitle>
             <AlertDialogDescription>
-              You&apos;re about to contact us on WhatsApp — ready?
+              Se va a enviar el detalle de la compra a nuestro WhatsApp.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
             <AlertDialogAction onClick={handleConfirm}>
-              Continue to WhatsApp
+              Continuar a WhatsApp
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

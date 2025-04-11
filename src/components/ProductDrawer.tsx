@@ -150,7 +150,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
               variant={isProductInCart ? 'destructive' : 'default'}
             >
               {product.sold ? (
-                'Sold'
+                'Vendido'
               ) : isProductInCart ? (
                 <>
                   <Trash2 className='h-4 w-4' />

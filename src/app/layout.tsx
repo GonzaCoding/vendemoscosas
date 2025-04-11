@@ -8,9 +8,8 @@ import { AnalyticsProvider } from '@/components/providers/analytics-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Personal E-Commerce',
-  description:
-    'A simple, mobile-first e-commerce site for selling personal items',
+  title: 'Vendemos Cosas',
+  description: 'Una paginita para vender cosas que no usamos.',
 };
 
 export default function RootLayout({
