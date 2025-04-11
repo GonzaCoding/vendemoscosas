@@ -26,7 +26,7 @@ export function StickyCategoryBadges() {
   if (!isVisible) return null;
 
   return (
-    <div className='sticky top-16 z-40 w-full py-2'>
+    <div className='sticky top-16 z-40 w-full py-2 p-4 sm:px-6 lg:px-8'>
       <div className='container'>
         <CategoryBadges />
       </div>
