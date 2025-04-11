@@ -139,30 +139,30 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
                 {product.description}
               </p>
             </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className='flex-none p-4 border-t transition-colors duration-300'>
-            <Button
-              className='w-full transition-all duration-300 hover:scale-[1.02]'
-              onClick={handleCartAction}
-              disabled={product.sold}
-              variant={isProductInCart ? 'destructive' : 'default'}
-            >
-              {product.sold ? (
-                'Vendido'
-              ) : isProductInCart ? (
-                <>
-                  <Trash2 className='h-4 w-4' />
-                  Borrar
-                </>
-              ) : (
-                <>
-                  <Plus className='h-4 w-4' />
-                  Agregar
-                </>
-              )}
-            </Button>
+            {/* Action Buttons */}
+            <div className='flex-none p-4 border-t transition-colors duration-300'>
+              <Button
+                className='w-full transition-all duration-300 hover:scale-[1.02]'
+                onClick={handleCartAction}
+                disabled={product.sold}
+                variant={isProductInCart ? 'destructive' : 'default'}
+              >
+                {product.sold ? (
+                  'Vendido'
+                ) : isProductInCart ? (
+                  <>
+                    <Trash2 className='h-4 w-4' />
+                    Borrar
+                  </>
+                ) : (
+                  <>
+                    <Plus className='h-4 w-4' />
+                    Agregar
+                  </>
+                )}
+              </Button>
+            </div>
           </div>
         </div>
       </DrawerContent>
