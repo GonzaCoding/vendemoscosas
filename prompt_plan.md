@@ -200,16 +200,11 @@ Focus on:
 ### Prompt 12: Analytics & Optimization
 
 ```text
-Implement analytics and optimization:
+Implement analytics:
 1. Basic analytics setup
 2. Event tracking
-3. Performance optimization
-4. Image optimization
-5. Error boundary implementation
 
 Include:
-- Loading performance
-- Error handling
 - Analytics events
 ```
 ### Prompt 13: Deployment
