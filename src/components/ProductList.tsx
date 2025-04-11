@@ -1,4 +1,4 @@
-import { Product } from '@/types/types';
+import type { Product } from '@/types/types';
 import { ProductCard } from '@/components/ProductCard';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useFilter } from '@/contexts/FilterContext';

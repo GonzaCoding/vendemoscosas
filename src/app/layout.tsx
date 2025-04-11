@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/contexts/CartContext';
+import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
-        <CartProvider>
-          <div className='min-h-screen flex flex-col'>{children}</div>
-        </CartProvider>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <CartProvider>
+            <div className='min-h-screen flex flex-col'>{children}</div>
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

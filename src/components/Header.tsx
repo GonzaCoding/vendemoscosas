@@ -1,18 +1,20 @@
-import Link from 'next/link';
+'use client';
+
+import { ThemeToggle } from './ThemeToggle';
 import { CartButton } from './CartButton';
+import { StickyCategoryBadges } from './StickyCategoryBadges';
 
 export function Header() {
   return (
-    <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
-      <div className='container flex h-16 items-center justify-between'>
-        <Link href='/' className='flex items-center space-x-2'>
-          <span className='text-xl font-bold'>🛒 Vendemos Cosas</span>
-        </Link>
-
-        <div className='flex items-center space-x-4'>
+    <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-3'>
+      <div className='container flex h-8 items-center justify-between'>
+        <h1 className='text-xl font-bold'>🛒 Vendemos Cosas</h1>
+        <div className='flex items-center gap-4'>
+          <ThemeToggle />
           <CartButton />
         </div>
       </div>
+      <StickyCategoryBadges />
     </header>
   );
 }

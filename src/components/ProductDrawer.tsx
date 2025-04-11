@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
@@ -21,9 +21,11 @@ interface ProductDrawerProps {
 
 export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { addItem, isInCart } = useCart();
+  const { addItem, isInCart, removeItem } = useCart();
 
   if (!product) return null;
+
+  const isProductInCart = isInCart(product.id);
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) =>
@@ -37,19 +39,22 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
     );
   };
 
-  const handleAddToCart = () => {
-    addItem({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      sold: product.sold,
-    });
-    onClose();
+  const handleCartAction = () => {
+    if (isProductInCart) {
+      removeItem(product.id);
+    } else {
+      addItem({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        sold: product.sold,
+      });
+    }
   };
 
   return (
     <Drawer open={!!product} onOpenChange={onClose} direction='right'>
-      <DrawerContent className='h-[90vh] max-w-3xl mx-auto'>
+      <DrawerContent className='h-screen max-w-3xl mx-auto'>
         <div className='flex flex-col h-full'>
           <DrawerHeader className='flex-none'>
             <div className='flex items-center justify-between'>
@@ -113,14 +118,23 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
           <div className='flex-none p-4 border-t'>
             <Button
               className='w-full'
-              onClick={handleAddToCart}
-              disabled={product.sold || isInCart(product.id)}
+              onClick={handleCartAction}
+              disabled={product.sold}
+              variant={isProductInCart ? 'destructive' : 'default'}
             >
-              {product.sold
-                ? 'Sold'
-                : isInCart(product.id)
-                ? 'Added to Cart'
-                : 'Add to Cart'}
+              {product.sold ? (
+                'Sold'
+              ) : isProductInCart ? (
+                <>
+                  <Trash2 className='h-4 w-4' />
+                  Remove
+                </>
+              ) : (
+                <>
+                  <Plus className='h-4 w-4' />
+                  Add
+                </>
+              )}
             </Button>
           </div>
         </div>

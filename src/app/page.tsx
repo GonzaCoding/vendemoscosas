@@ -7,8 +7,8 @@ import { useProducts } from '@/hooks/useProducts';
 import { useCart } from '@/contexts/CartContext';
 import type { Product } from '@/types/types';
 import { SearchInput } from '@/components/SearchInput';
-import { CategoryFilter } from '@/components/CategoryFilter';
 import { FilterProvider } from '@/contexts/FilterContext';
+import { CategoryBadges } from '@/components/CategoryBadges';
 
 export default function Home() {
   const { products, isLoading, error } = useProducts();
@@ -35,13 +35,9 @@ export default function Home() {
             <p className='text-muted-foreground mb-8'>
               Browse our collection of items for sale.
             </p>
-            <div className='flex flex-col sm:flex-row gap-4 mb-8 w-full'>
-              <div className='w-full sm:w-auto'>
-                <SearchInput />
-              </div>
-              <div className='w-full sm:w-auto'>
-                <CategoryFilter />
-              </div>
+            <div id='search-section' className='space-y-4 mb-8'>
+              <CategoryBadges />
+              <SearchInput />
             </div>
             <ProductList
               products={products}

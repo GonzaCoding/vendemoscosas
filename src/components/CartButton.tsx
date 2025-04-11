@@ -30,7 +30,7 @@ export function CartButton() {
         >
           <Badge
             variant='secondary'
-            className='absolute -right-2 -top-2 h-5 w-5 rounded-full p-0 flex items-center justify-center'
+            className='absolute -right-[2px] -top-[2px] h-5 w-5 rounded-full p-0 flex items-center justify-center'
           >
             {items.length}
           </Badge>

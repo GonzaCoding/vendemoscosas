@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { ProductDrawer } from './ProductDrawer';
 import { getPrimaryImage } from '@/lib/product-utils';
 import { useCart } from '@/contexts/CartContext';
+import { Plus, Trash2 } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -15,7 +16,9 @@ interface ProductCardProps {
 
 export function ProductCard({ product, onAddToCart }: ProductCardProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { isInCart } = useCart();
+  const { isInCart, removeItem } = useCart();
+
+  const isProductInCart = isInCart(product.id);
 
   return (
     <>
@@ -40,16 +43,29 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             <Button
               onClick={(e) => {
                 e.stopPropagation();
-                onAddToCart(product);
+                if (isProductInCart) {
+                  removeItem(product.id);
+                } else {
+                  onAddToCart(product);
+                }
               }}
-              disabled={product.sold || isInCart(product.id)}
+              variant={isProductInCart ? 'destructive' : 'default'}
               size='sm'
+              disabled={product.sold}
             >
-              {product.sold
-                ? 'Sold'
-                : isInCart(product.id)
-                ? 'Added to Cart'
-                : 'Add to Cart'}
+              {product.sold ? (
+                'Sold'
+              ) : isProductInCart ? (
+                <>
+                  <Trash2 className='h-4 w-4' />
+                  Remove
+                </>
+              ) : (
+                <>
+                  <Plus className='h-4 w-4' />
+                  Add
+                </>
+              )}
             </Button>
           </div>
         </div>
