@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/contexts/CartContext';
 import { ThemeProvider } from 'next-themes';
+import { AnalyticsProvider } from '@/components/providers/analytics-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,9 +22,13 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <CartProvider>
-            <div className='min-h-screen flex flex-col'>{children}</div>
-          </CartProvider>
+          <AnalyticsProvider
+            measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''}
+          >
+            <CartProvider>
+              <div className='min-h-screen flex flex-col'>{children}</div>
+            </CartProvider>
+          </AnalyticsProvider>
         </ThemeProvider>
       </body>
     </html>

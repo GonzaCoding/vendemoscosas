@@ -14,6 +14,7 @@ import { useCart } from '@/contexts/CartContext';
 import type { Product } from '@/types/types';
 import { getProductImagePath } from '@/lib/product-utils';
 import { Skeleton } from '@/components/ui/skeleton';
+import { trackAddToCart } from '@/lib/analytics';
 
 interface ProductDrawerProps {
   product: Product | null;
@@ -53,6 +54,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
         price: product.price,
         sold: product.sold,
       });
+      trackAddToCart(product.id, product.title, product.price);
     }
   };
 

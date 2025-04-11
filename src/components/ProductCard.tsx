@@ -8,6 +8,7 @@ import { ProductDrawer } from './ProductDrawer';
 import { getPrimaryImage } from '@/lib/product-utils';
 import { useCart } from '@/contexts/CartContext';
 import { Plus, Trash2 } from 'lucide-react';
+import { trackProductView, trackAddToCart } from '@/lib/analytics';
 
 interface ProductCardProps {
   product: Product;
@@ -20,11 +21,26 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
 
   const isProductInCart = isInCart(product.id);
 
+  const handleDrawerOpen = () => {
+    setIsDrawerOpen(true);
+    trackProductView(product.id, product.title, product.price);
+  };
+
+  const handleCartAction = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (isProductInCart) {
+      removeItem(product.id);
+    } else {
+      onAddToCart(product);
+      trackAddToCart(product.id, product.title, product.price);
+    }
+  };
+
   return (
     <>
       <article
         className='group relative flex flex-col overflow-hidden rounded-lg border bg-background cursor-pointer w-full'
-        onClick={() => setIsDrawerOpen(true)}
+        onClick={handleDrawerOpen}
       >
         <div className='relative w-full h-[250px] bg-muted/20'>
           <Image
@@ -41,14 +57,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
           <div className='mt-auto flex items-center justify-between'>
             <span className='text-lg font-bold'>${product.price}</span>
             <Button
-              onClick={(e) => {
-                e.stopPropagation();
-                if (isProductInCart) {
-                  removeItem(product.id);
-                } else {
-                  onAddToCart(product);
-                }
-              }}
+              onClick={handleCartAction}
               variant={isProductInCart ? 'destructive' : 'default'}
               size='sm'
               disabled={product.sold}
