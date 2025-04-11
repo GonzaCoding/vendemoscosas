@@ -15,7 +15,7 @@
     "description": "Era de mi abuela, ya la conocen, la usamos todos los años. Funciona, pero tiene detalles.",
     "category": "Electrodomesticos",
     "sold": false,
-    "imageCount": 2
+    "imageCount": 5
   },
   {
     "id": "003",
@@ -24,7 +24,7 @@
     "description": "Con un monton de accesorios, estuche, cañas, correas, trapos de limpieza.",
     "category": "Instrumentos musicales",
     "sold": false,
-    "imageCount": 2
+    "imageCount": 8
   },
   {
     "id": "004",
@@ -33,7 +33,7 @@
     "description": "En perfecto estado, falta pintura. Las ruedas funcionan excelente. Mueble 1: 2 estantes más 3 cajones con ruedas. 120 de ancho, 30 de profundidad, 99 de alto. Mueble 2: 1 estante más 3 cajones con ruedas. 120 de ancho, 30 de profundidad, 59 de alto. Mueble 3: colgante, 3 estantes, algunos compartimentos con tapas. 120 de ancho, 30 de profundidad, 80 de alto. ",
     "category": "Muebles",
     "sold": false,
-    "imageCount": 2
+    "imageCount": 4
   },
   {
     "id": "005",
@@ -51,7 +51,7 @@
     "description": "Incluye 1 sillón de 2 cuerpos y 3 sillas de un cuerpo, con sus almohadones.",
     "category": "Muebles",
     "sold": false,
-    "imageCount": 2
+    "imageCount": 4
   },
   {
     "id": "007",
