@@ -9,6 +9,7 @@ import type { Product } from '@/types/types';
 import { SearchInput } from '@/components/SearchInput';
 import { FilterProvider } from '@/contexts/FilterContext';
 import { CategoryBadges } from '@/components/CategoryBadges';
+import Image from 'next/image';
 
 export default function Home() {
   const { products, isLoading, error } = useProducts();
@@ -34,10 +35,10 @@ export default function Home() {
               Somos Gonza y Maru ❤️ y estamos vendiendo cosas que no usamos.
               <br />
               Para nuestros amigos y conocidos podemos arreglar facilidades de
-              pago.
+              pago 💸.
               <br />
               Agregá todo lo que te gusta al carrito 🛒 y contactanos para
-              coordinar ☎️.
+              coordinar 🚚.
             </p>
             <div id='search-section' className='space-y-4 mb-8'>
               <CategoryBadges />
