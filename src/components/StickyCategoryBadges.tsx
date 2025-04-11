@@ -11,7 +11,7 @@ export function StickyCategoryBadges() {
       const searchSection = document.getElementById('search-section');
       if (searchSection) {
         const searchSectionRect = searchSection.getBoundingClientRect();
-        // Show sticky badges when search section is 100px from the top
+        // Show sticky badges when search section is 50px from the top
         setIsVisible(searchSectionRect.top < 50);
       }
     };

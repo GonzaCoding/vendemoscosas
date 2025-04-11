@@ -27,7 +27,7 @@ const eslintConfig = [
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-vars": "error",
-      "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-floating-promises": "warn",
       "@typescript-eslint/no-misused-promises": "warn",
       "@typescript-eslint/consistent-type-imports": "warn",
