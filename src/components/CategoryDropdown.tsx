@@ -20,7 +20,7 @@ export function CategoryDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant='outline' className='flex items-center gap-2'>
-          {selectedCategory ? selectedCategory.name : 'Categories'}
+          {selectedCategory ? selectedCategory.name : 'Categorias'}
           <ChevronDown className='h-4 w-4' />
         </Button>
       </DropdownMenuTrigger>
