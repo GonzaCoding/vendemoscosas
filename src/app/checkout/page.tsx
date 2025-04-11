@@ -62,14 +62,14 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className='container mx-auto p-4'>
+    <div className='container mx-auto p-4 min-h-screen flex flex-col'>
       <CartHeader />
 
       {items.length === 0 ? (
         <p className='text-muted-foreground'>Tu carrito está vacío 🗑️</p>
       ) : (
-        <>
-          <div className='space-y-4'>
+        <div className='flex-1 flex flex-col'>
+          <div className='space-y-4 flex-1 overflow-y-auto'>
             {items.map((item) => (
               <div
                 key={item.id}
@@ -94,7 +94,7 @@ export default function CheckoutPage() {
             ))}
           </div>
 
-          <div className='mt-6 border-t pt-4'>
+          <div className='mt-6 border-t pt-4 sticky bottom-0 bg-background'>
             <div className='flex justify-between items-center mb-4'>
               <span className='text-lg font-medium'>Total</span>
               <span className='text-2xl font-bold'>${total}</span>
@@ -120,28 +120,25 @@ export default function CheckoutPage() {
               </Button>
             )}
           </div>
-
-          <AlertDialog
-            open={showConfirmation}
-            onOpenChange={setShowConfirmation}
-          >
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Ready to Checkout?</AlertDialogTitle>
-                <AlertDialogDescription>
-                  You&apos;re about to contact us on WhatsApp — ready?
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction onClick={handleConfirm}>
-                  Continue to WhatsApp
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
-        </>
+        </div>
       )}
+
+      <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Ready to Checkout?</AlertDialogTitle>
+            <AlertDialogDescription>
+              You&apos;re about to contact us on WhatsApp — ready?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleConfirm}>
+              Continue to WhatsApp
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
