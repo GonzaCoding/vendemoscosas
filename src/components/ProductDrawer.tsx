@@ -58,12 +58,19 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
 
   return (
     <Drawer open={!!product} onOpenChange={onClose} direction='right'>
-      <DrawerContent className='h-screen max-w-3xl mx-auto border-l border-border bg-background/95'>
+      <DrawerContent className='h-screen max-w-3xl mx-auto border-l border-border bg-background/95 transition-all duration-300 ease-in-out'>
         <div className='flex flex-col h-full'>
-          <DrawerHeader className='flex-none border-b'>
+          <DrawerHeader className='flex-none border-b transition-colors duration-300'>
             <div className='flex items-center justify-between'>
-              <DrawerTitle>{product.title}</DrawerTitle>
-              <Button variant='ghost' size='icon' onClick={onClose}>
+              <DrawerTitle className='transition-colors duration-300'>
+                {product.title}
+              </DrawerTitle>
+              <Button
+                variant='ghost'
+                size='icon'
+                onClick={onClose}
+                className='transition-colors duration-300 hover:bg-muted'
+              >
                 <X className='h-4 w-4' />
               </Button>
             </div>
@@ -71,15 +78,19 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
 
           <div className='flex-1 overflow-y-auto'>
             {/* Image Carousel */}
-            <div className='relative w-full flex justify-center items-center bg-muted/20'>
+            <div className='relative w-full flex justify-center items-center bg-muted/20 transition-colors duration-300'>
               <div className='relative w-full max-w-2xl h-[350px]'>
-                {isImageLoading && <Skeleton className='w-full h-full' />}
+                {isImageLoading && (
+                  <Skeleton className='w-full h-full animate-pulse' />
+                )}
                 <Image
                   src={getProductImagePath(product.id, currentImageIndex + 1)}
                   alt={product.title}
                   fill
-                  className={`object-contain transition-opacity duration-300 ${
-                    isImageLoading ? 'opacity-0' : 'opacity-100'
+                  className={`object-contain transition-all duration-300 ${
+                    isImageLoading
+                      ? 'opacity-0 scale-95'
+                      : 'opacity-100 scale-100'
                   }`}
                   priority
                   onLoadingComplete={() => setIsImageLoading(false)}
@@ -91,7 +102,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
                     <Button
                       variant='ghost'
                       size='icon'
-                      className='absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90'
+                      className='absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90 transition-colors duration-300'
                       onClick={handlePrevImage}
                     >
                       <ChevronLeft className='h-4 w-4' />
@@ -99,7 +110,7 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
                     <Button
                       variant='ghost'
                       size='icon'
-                      className='absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90'
+                      className='absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background/90 transition-colors duration-300'
                       onClick={handleNextImage}
                     >
                       <ChevronRight className='h-4 w-4' />
@@ -110,22 +121,28 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
             </div>
 
             {/* Product Details */}
-            <div className='p-4 space-y-4'>
+            <div className='p-4 space-y-4 transition-colors duration-300'>
               <div className='flex items-center justify-between'>
-                <span className='text-2xl font-bold'>${product.price}</span>
+                <span className='text-2xl font-bold transition-colors duration-300'>
+                  ${product.price}
+                </span>
                 {product.sold && (
-                  <span className='text-sm text-muted-foreground'>Sold</span>
+                  <span className='text-sm text-muted-foreground transition-colors duration-300'>
+                    Sold
+                  </span>
                 )}
               </div>
 
-              <p className='text-muted-foreground'>{product.description}</p>
+              <p className='text-muted-foreground transition-colors duration-300'>
+                {product.description}
+              </p>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className='flex-none p-4 border-t'>
+          <div className='flex-none p-4 border-t transition-colors duration-300'>
             <Button
-              className='w-full'
+              className='w-full transition-all duration-300 hover:scale-[1.02]'
               onClick={handleCartAction}
               disabled={product.sold}
               variant={isProductInCart ? 'destructive' : 'default'}

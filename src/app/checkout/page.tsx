@@ -131,7 +131,7 @@ export default function CheckoutPage() {
           <AlertDialogHeader>
             <AlertDialogTitle>Ready to Checkout?</AlertDialogTitle>
             <AlertDialogDescription>
-              You're about to contact us on WhatsApp — ready?
+              You&apos;re about to contact us on WhatsApp — ready?
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
