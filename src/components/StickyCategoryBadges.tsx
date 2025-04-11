@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { CategoryBadges } from './CategoryBadges';
+import { CategoryDropdown } from './CategoryDropdown';
 
 export function StickyCategoryBadges() {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,8 +27,8 @@ export function StickyCategoryBadges() {
 
   return (
     <div className='sticky top-16 z-40 w-full px-4 pb-2 sm:px-6 lg:px-8'>
-      <div className='container'>
-        <CategoryBadges />
+      <div className='container flex justify-center'>
+        <CategoryDropdown />
       </div>
     </div>
   );
