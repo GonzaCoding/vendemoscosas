@@ -39,7 +39,9 @@ export default function CheckoutPage() {
 
   const handleConfirm = () => {
     const message = generateWhatsAppMessage();
-    window.open(`https://wa.me/?text=${message}`, '_blank');
+    // Replace with your actual WhatsApp number (remove any spaces, dashes, or parentheses)
+    const phoneNumber = '+541159458254';
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     setShowConfirmation(false);
   };
 
