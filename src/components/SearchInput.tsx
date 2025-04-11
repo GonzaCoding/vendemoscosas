@@ -20,7 +20,7 @@ export function SearchInput() {
       <Search className='absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground' />
       <Input
         type='search'
-        placeholder='Search products...'
+        placeholder='Buscar...'
         className='pl-8'
         value={value}
         onChange={(e) => setValue(e.target.value)}

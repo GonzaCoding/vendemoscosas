@@ -67,12 +67,12 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
               ) : isProductInCart ? (
                 <>
                   <Trash2 className='h-4 w-4' />
-                  Remove
+                  Borrar
                 </>
               ) : (
                 <>
                   <Plus className='h-4 w-4' />
-                  Add
+                  Agregar
                 </>
               )}
             </Button>

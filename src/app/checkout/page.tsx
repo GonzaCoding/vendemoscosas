@@ -18,10 +18,26 @@ import {
 } from '@/components/ui/alert-dialog';
 import { useRouter } from 'next/navigation';
 
+function CartHeader() {
+  const router = useRouter();
+
+  return (
+    <div className='flex items-center justify-between mb-4'>
+      <h1 className='text-2xl font-bold'>Tu Carrito 🛒</h1>
+      <div className='flex items-center gap-2'>
+        <ThemeToggle />
+        <Button variant='outline' onClick={() => router.back()}>
+          <ArrowLeft className='h-4 w-4 mr-2' />
+          Volver
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 export default function CheckoutPage() {
   const { items, removeItem } = useCart();
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const router = useRouter();
 
   const availableItems = items.filter((item) => !item.sold);
   const total = availableItems.reduce((sum, item) => sum + item.price, 0);
@@ -45,105 +61,87 @@ export default function CheckoutPage() {
     setShowConfirmation(false);
   };
 
-  if (items.length === 0) {
-    return (
-      <div className='container mx-auto p-4'>
-        <div className='flex items-center justify-between mb-4'>
-          <h1 className='text-2xl font-bold'>Your Cart</h1>
-          <div className='flex items-center gap-2'>
-            <ThemeToggle />
-            <Button variant='outline' onClick={() => router.back()}>
-              <ArrowLeft className='h-4 w-4 mr-2' />
-              Back
-            </Button>
-          </div>
-        </div>
-        <p className='text-muted-foreground'>Your cart is empty</p>
-      </div>
-    );
-  }
-
   return (
     <div className='container mx-auto p-4'>
-      <div className='flex items-center justify-between mb-4'>
-        <h1 className='text-2xl font-bold'>Your Cart</h1>
-        <div className='flex items-center gap-2'>
-          <ThemeToggle />
-          <Button variant='outline' onClick={() => router.back()}>
-            <ArrowLeft className='h-4 w-4 mr-2' />
-            Back
-          </Button>
-        </div>
-      </div>
+      <CartHeader />
 
-      <div className='space-y-4'>
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className='flex items-center justify-between p-4 border rounded-lg'
-          >
-            <div>
-              <h3 className='font-medium'>{item.title}</h3>
-              <p className='text-muted-foreground'>${item.price}</p>
-              {item.sold && (
-                <span className='text-sm text-destructive'>Sold</span>
-              )}
-            </div>
-            <Button
-              variant='ghost'
-              size='icon'
-              onClick={() => removeItem(item.id)}
-              disabled={item.sold}
-            >
-              <Trash2 className='h-4 w-4' />
-            </Button>
+      {items.length === 0 ? (
+        <p className='text-muted-foreground'>Tu carrito está vacío 🗑️</p>
+      ) : (
+        <>
+          <div className='space-y-4'>
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className='flex items-center justify-between p-4 border rounded-lg'
+              >
+                <div>
+                  <h3 className='font-medium'>{item.title}</h3>
+                  <p className='text-muted-foreground'>${item.price}</p>
+                  {item.sold && (
+                    <span className='text-sm text-destructive'>Sold</span>
+                  )}
+                </div>
+                <Button
+                  variant='ghost'
+                  size='icon'
+                  onClick={() => removeItem(item.id)}
+                  disabled={item.sold}
+                >
+                  <Trash2 className='h-4 w-4' />
+                </Button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className='mt-6 border-t pt-4'>
-        <div className='flex justify-between items-center mb-4'>
-          <span className='text-lg font-medium'>Total</span>
-          <span className='text-2xl font-bold'>${total}</span>
-        </div>
+          <div className='mt-6 border-t pt-4'>
+            <div className='flex justify-between items-center mb-4'>
+              <span className='text-lg font-medium'>Total</span>
+              <span className='text-2xl font-bold'>${total}</span>
+            </div>
 
-        {availableItems.length > 0 ? (
-          <Button
-            className='w-full bg-[#25D366] hover:bg-[#25D366]/90 text-black border-2 border-black/10'
-            onClick={handleCheckout}
+            {availableItems.length > 0 ? (
+              <Button
+                className='w-full bg-[#25D366] hover:bg-[#25D366]/90 text-black border-2 border-black/10'
+                onClick={handleCheckout}
+              >
+                Contactanos por WhatsApp
+                <Image
+                  src='/icons/whatsapp.svg'
+                  alt='WhatsApp'
+                  width={16}
+                  height={16}
+                  className='ml-2'
+                />
+              </Button>
+            ) : (
+              <Button className='w-full' disabled>
+                All items are sold
+              </Button>
+            )}
+          </div>
+
+          <AlertDialog
+            open={showConfirmation}
+            onOpenChange={setShowConfirmation}
           >
-            Checkout via WhatsApp
-            <Image
-              src='/icons/whatsapp.svg'
-              alt='WhatsApp'
-              width={16}
-              height={16}
-              className='ml-2'
-            />
-          </Button>
-        ) : (
-          <Button className='w-full' disabled>
-            All items are sold
-          </Button>
-        )}
-      </div>
-
-      <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Ready to Checkout?</AlertDialogTitle>
-            <AlertDialogDescription>
-              You&apos;re about to contact us on WhatsApp — ready?
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirm}>
-              Continue to WhatsApp
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Ready to Checkout?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  You&apos;re about to contact us on WhatsApp — ready?
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleConfirm}>
+                  Continue to WhatsApp
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </>
+      )}
     </div>
   );
 }
