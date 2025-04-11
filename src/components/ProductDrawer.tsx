@@ -13,6 +13,7 @@ import {
 import { useCart } from '@/contexts/CartContext';
 import type { Product } from '@/types/types';
 import { getProductImagePath } from '@/lib/product-utils';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface ProductDrawerProps {
   product: Product | null;
@@ -21,6 +22,7 @@ interface ProductDrawerProps {
 
 export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isImageLoading, setIsImageLoading] = useState(true);
   const { addItem, isInCart, removeItem } = useCart();
 
   if (!product) return null;
@@ -28,12 +30,14 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
   const isProductInCart = isInCart(product.id);
 
   const handlePrevImage = () => {
+    setIsImageLoading(true);
     setCurrentImageIndex((prev) =>
       prev === 0 ? product.imageCount - 1 : prev - 1
     );
   };
 
   const handleNextImage = () => {
+    setIsImageLoading(true);
     setCurrentImageIndex((prev) =>
       prev === product.imageCount - 1 ? 0 : prev + 1
     );
@@ -69,12 +73,16 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
             {/* Image Carousel */}
             <div className='relative w-full flex justify-center items-center bg-muted/20'>
               <div className='relative w-full max-w-2xl h-[350px]'>
+                {isImageLoading && <Skeleton className='w-full h-full' />}
                 <Image
                   src={getProductImagePath(product.id, currentImageIndex + 1)}
                   alt={product.title}
                   fill
-                  className='object-contain'
+                  className={`object-contain transition-opacity duration-300 ${
+                    isImageLoading ? 'opacity-0' : 'opacity-100'
+                  }`}
                   priority
+                  onLoadingComplete={() => setIsImageLoading(false)}
                 />
 
                 {/* Navigation Buttons */}
