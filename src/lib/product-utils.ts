@@ -126,7 +126,7 @@ export function getProductImagePath(
   productId: string,
   imageNumber: number
 ): string {
-  return `/${productId}/${imageNumber.toString().padStart(2, '0')}.jpeg`;
+  return `/images/${productId}/${imageNumber.toString().padStart(2, '0')}.jpeg`;
 }
 
 /**

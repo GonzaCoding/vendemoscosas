@@ -9,7 +9,6 @@ import type { Product } from '@/types/types';
 import { SearchInput } from '@/components/SearchInput';
 import { FilterProvider } from '@/contexts/FilterContext';
 import { CategoryBadges } from '@/components/CategoryBadges';
-import Image from 'next/image';
 
 export default function Home() {
   const { products, isLoading, error } = useProducts();
