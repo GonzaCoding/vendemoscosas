@@ -62,14 +62,14 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className='container mx-auto p-4 min-h-screen flex flex-col'>
+    <div className='container mx-auto p-4 pb-32'>
       <CartHeader />
 
       {items.length === 0 ? (
         <p className='text-muted-foreground'>Tu carrito está vacío 🗑️</p>
       ) : (
-        <div className='flex-1 flex flex-col'>
-          <div className='space-y-4 flex-1 overflow-y-auto'>
+        <>
+          <div className='space-y-4'>
             {items.map((item) => (
               <div
                 key={item.id}
@@ -94,33 +94,35 @@ export default function CheckoutPage() {
             ))}
           </div>
 
-          <div className='mt-6 border-t pt-4 sticky bottom-0 bg-background'>
-            <div className='flex justify-between items-center mb-4'>
-              <span className='text-lg font-medium'>Total</span>
-              <span className='text-2xl font-bold'>${total}</span>
-            </div>
+          <div className='fixed bottom-0 left-0 right-0 bg-background border-t p-4'>
+            <div className='container mx-auto'>
+              <div className='flex justify-between items-center mb-4'>
+                <span className='text-lg font-medium'>Total</span>
+                <span className='text-2xl font-bold'>${total}</span>
+              </div>
 
-            {availableItems.length > 0 ? (
-              <Button
-                className='w-full bg-[#25D366] hover:bg-[#25D366]/90 text-black border-2 border-black/10'
-                onClick={handleCheckout}
-              >
-                Contactanos por WhatsApp
-                <Image
-                  src='/icons/whatsapp.svg'
-                  alt='WhatsApp'
-                  width={16}
-                  height={16}
-                  className='ml-2'
-                />
-              </Button>
-            ) : (
-              <Button className='w-full' disabled>
-                All items are sold
-              </Button>
-            )}
+              {availableItems.length > 0 ? (
+                <Button
+                  className='w-full bg-[#25D366] hover:bg-[#25D366]/90 text-black border-2 border-black/10'
+                  onClick={handleCheckout}
+                >
+                  Contactanos por WhatsApp
+                  <Image
+                    src='/icons/whatsapp.svg'
+                    alt='WhatsApp'
+                    width={16}
+                    height={16}
+                    className='ml-2'
+                  />
+                </Button>
+              ) : (
+                <Button className='w-full' disabled>
+                  All items are sold
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
