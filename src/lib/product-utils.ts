@@ -64,8 +64,7 @@ function isValidProduct(product: unknown): product is Product {
     typeof potentialProduct.description === 'string' &&
     typeof potentialProduct.category === 'string' &&
     typeof potentialProduct.sold === 'boolean' &&
-    Array.isArray(potentialProduct.images) &&
-    potentialProduct.images.every((img: unknown) => typeof img === 'string')
+    typeof potentialProduct.imageCount === 'number'
   );
 }
 

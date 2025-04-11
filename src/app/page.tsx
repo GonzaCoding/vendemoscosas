@@ -36,7 +36,7 @@ export default function Home() {
               Para nuestros amigos y conocidos podemos arreglar facilidades de
               pago.
               <br />
-              Agregá todo lo que te gusta al 🛒 carrito y contactanos para
+              Agregá todo lo que te gusta al carrito 🛒 y contactanos para
               coordinar ☎️.
             </p>
             <div id='search-section' className='space-y-4 mb-8'>

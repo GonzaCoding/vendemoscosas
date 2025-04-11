@@ -52,5 +52,23 @@
     "category": "Lighting",
     "sold": false,
     "imageCount": 2
+  },
+  {
+    "id": "007",
+    "title": "Sarasa",
+    "price": 95,
+    "description": "Modern industrial pendant light with adjustable height. Perfect for kitchen islands or dining areas.",
+    "category": "Lighting",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "008",
+    "title": "Sarasa2",
+    "price": 95,
+    "description": "Modern industrial pendant light with adjustable height. Perfect for kitchen islands or dining areas.",
+    "category": "Lighting",
+    "sold": false,
+    "imageCount": 2
   }
 ]
