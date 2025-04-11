@@ -17,7 +17,11 @@ export function CategoryBadges() {
           variant={
             selectedCategory?.name === category.name ? 'default' : 'outline'
           }
-          className='cursor-pointer bg-white py-[6px]'
+          className={`cursor-pointer py-[6px] ${
+            selectedCategory?.name === category.name
+              ? 'bg-primary text-primary-foreground'
+              : 'bg-background hover:bg-muted'
+          }`}
           onClick={() => {
             if (selectedCategory?.name === category.name) {
               setSelectedCategory(null);

@@ -54,9 +54,9 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
 
   return (
     <Drawer open={!!product} onOpenChange={onClose} direction='right'>
-      <DrawerContent className='h-screen max-w-3xl mx-auto'>
+      <DrawerContent className='h-screen max-w-3xl mx-auto border-l border-border bg-background/95'>
         <div className='flex flex-col h-full'>
-          <DrawerHeader className='flex-none'>
+          <DrawerHeader className='flex-none border-b'>
             <div className='flex items-center justify-between'>
               <DrawerTitle>{product.title}</DrawerTitle>
               <Button variant='ghost' size='icon' onClick={onClose}>
