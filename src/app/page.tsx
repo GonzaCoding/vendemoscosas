@@ -9,6 +9,7 @@ import type { Product } from '@/types/types';
 import { SearchInput } from '@/components/SearchInput';
 import { FilterProvider } from '@/contexts/FilterContext';
 import { CategoryBadges } from '@/components/CategoryBadges';
+import { SortDropdown } from '@/components/SortDropdown';
 
 export default function Home() {
   const { products, isLoading, error } = useProducts();
@@ -41,7 +42,10 @@ export default function Home() {
             </p>
             <div id='search-section' className='space-y-4 mb-8'>
               <CategoryBadges />
-              <SearchInput />
+              <div className='flex gap-2'>
+                <SearchInput />
+                <SortDropdown />
+              </div>
             </div>
             <ProductList
               products={products}

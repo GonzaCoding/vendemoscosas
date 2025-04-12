@@ -12,6 +12,7 @@ export function FilterProvider({ children }: { children: React.ReactNode }) {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
     null
   );
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | null>(null);
 
   const categories = useMemo(() => {
     const categoryMap = new Map<string, number>();
@@ -32,6 +33,7 @@ export function FilterProvider({ children }: { children: React.ReactNode }) {
   const clearFilters = () => {
     setSearchQuery('');
     setSelectedCategory(null);
+    setSortOrder(null);
   };
 
   return (
@@ -39,8 +41,10 @@ export function FilterProvider({ children }: { children: React.ReactNode }) {
       value={{
         searchQuery,
         selectedCategory,
+        sortOrder,
         setSearchQuery,
         setSelectedCategory,
+        setSortOrder,
         clearFilters,
         categories,
       }}

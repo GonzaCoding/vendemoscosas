@@ -2,6 +2,7 @@ import type { Product } from '@/types/types';
 import { ProductCard } from '@/components/ProductCard';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useFilter } from '@/contexts/FilterContext';
+import { useMemo } from 'react';
 
 interface ProductListProps {
   products: Product[];
@@ -16,7 +17,7 @@ export function ProductList({
   error,
   onAddToCart,
 }: ProductListProps) {
-  const { searchQuery, selectedCategory } = useFilter();
+  const { searchQuery, selectedCategory, sortOrder } = useFilter();
 
   const filteredProducts = products.filter((product) => {
     if (product.sold) return false;
@@ -32,6 +33,17 @@ export function ProductList({
 
     return matchesSearch && matchesCategory;
   });
+
+  const sortedProducts = useMemo(() => {
+    if (!sortOrder) return filteredProducts;
+    return [...filteredProducts].sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+  }, [filteredProducts, sortOrder]);
 
   if (error) {
     return (
@@ -58,7 +70,7 @@ export function ProductList({
     );
   }
 
-  if (filteredProducts.length === 0) {
+  if (sortedProducts.length === 0) {
     return (
       <div className='flex h-32 items-center justify-center rounded-lg border border-dashed'>
         <p className='text-center text-sm text-muted-foreground'>
@@ -70,7 +82,7 @@ export function ProductList({
 
   return (
     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-      {filteredProducts.map((product) => (
+      {sortedProducts.map((product) => (
         <ProductCard
           key={product.id}
           product={product}

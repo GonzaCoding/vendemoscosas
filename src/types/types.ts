@@ -42,8 +42,10 @@ export interface Category {
 export interface FilterState {
   searchQuery: string;
   selectedCategory: Category | null;
+  sortOrder: 'asc' | 'desc' | null;
   setSearchQuery: (query: string) => void;
   setSelectedCategory: (category: Category | null) => void;
+  setSortOrder: (order: 'asc' | 'desc' | null) => void;
   clearFilters: () => void;
   categories: Category[];
 }
