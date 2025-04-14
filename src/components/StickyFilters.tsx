@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { CategoryDropdown } from './CategoryDropdown';
+import { SortDropdown } from './SortDropdown';
 
-export function StickyCategoryBadges() {
+export function StickyFilters() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -27,8 +28,9 @@ export function StickyCategoryBadges() {
 
   return (
     <div className='sticky top-16 z-40 w-full px-4 pb-2 sm:px-6 lg:px-8'>
-      <div className='container flex justify-center'>
+      <div className='container flex justify-center gap-2'>
         <CategoryDropdown />
+        <SortDropdown />
       </div>
     </div>
   );

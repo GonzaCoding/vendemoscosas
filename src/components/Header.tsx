@@ -2,7 +2,7 @@
 
 import { ThemeToggle } from './ThemeToggle';
 import { CartButton } from './CartButton';
-import { StickyCategoryBadges } from './StickyCategoryBadges';
+import { StickyFilters } from './StickyFilters';
 
 export function Header() {
   return (
@@ -14,7 +14,7 @@ export function Header() {
           <CartButton />
         </div>
       </div>
-      <StickyCategoryBadges />
+      <StickyFilters />
     </header>
   );
 }
