@@ -74,7 +74,7 @@
   {
     "id": "009",
     "title": "Cortadora picadora de verduras Liliana Easysalad",
-    "price": 190000,
+    "price": 30000,
     "description": "Con todas las cuchillas, en perfecto estado",
     "category": "Electrodomesticos",
     "sold": false,
@@ -83,7 +83,7 @@
   {
     "id": "010",
     "title": "Juego de vajilla para te de porcelana",
-    "price": 190000,
+    "price": 60000,
     "description": "Tetera, azucarera, tazas, platos, etc.",
     "category": "Cocina",
     "sold": false,
