@@ -88,5 +88,32 @@
     "category": "Cocina",
     "sold": false,
     "imageCount": 4
+  },
+  {
+    "id": "011",
+    "title": "Auriculares gamer MOON",
+    "price": 10000,
+    "description": "No le funciona el micrófono, pero los altavoces funcionan bien. Tiene un pequeño detalle en la parte exterior de la cuerina, pero no donde apoya la oreja.",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "012",
+    "title": "Teclado mecanico gamer Alnitak VSG con luces RGB",
+    "price": 50000,
+    "description": "Como nuevo en caja.",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "013",
+    "title": "Smart TV 4K Noblex 55 pulgadas",
+    "price": 500000,
+    "description": "Funciona perfecto, incluye soporte para pared.",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 3
   }
 ]
