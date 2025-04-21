@@ -17,7 +17,7 @@ export function ProductList({
   error,
   onAddToCart,
 }: ProductListProps) {
-  const { searchQuery, selectedCategory, sortOrder } = useFilter();
+  const { searchQuery, selectedCategory, sortOrder, categories } = useFilter();
 
   const filteredProducts = products.filter((product) => {
     if (product.sold) return false;
@@ -35,15 +35,49 @@ export function ProductList({
   });
 
   const sortedProducts = useMemo(() => {
-    if (!sortOrder) return filteredProducts;
-    return [...filteredProducts].sort((a, b) => {
-      if (sortOrder === 'asc') {
-        return a.price - b.price;
-      } else {
-        return b.price - a.price;
-      }
-    });
-  }, [filteredProducts, sortOrder]);
+    let sorted = [...filteredProducts];
+
+    // First sort by category count if no specific sort order is selected
+    if (!sortOrder) {
+      const categoryCountMap = new Map(
+        categories.map((category) => [category.name, category.count])
+      );
+
+      // First sort by category count
+      sorted.sort((a, b) => {
+        const countA = categoryCountMap.get(a.category) || 0;
+        const countB = categoryCountMap.get(b.category) || 0;
+        return countB - countA; // Descending order
+      });
+
+      // Then sort by price within each category
+      const categoryGroups = new Map<string, Product[]>();
+      sorted.forEach((product) => {
+        const group = categoryGroups.get(product.category) || [];
+        group.push(product);
+        categoryGroups.set(product.category, group);
+      });
+
+      // Sort each category group by price descending
+      categoryGroups.forEach((group) => {
+        group.sort((a, b) => b.price - a.price);
+      });
+
+      // Flatten the groups back into a single array
+      sorted = Array.from(categoryGroups.values()).flat();
+    } else {
+      // Then sort by price if a sort order is selected
+      sorted.sort((a, b) => {
+        if (sortOrder === 'asc') {
+          return a.price - b.price;
+        } else {
+          return b.price - a.price;
+        }
+      });
+    }
+
+    return sorted;
+  }, [filteredProducts, sortOrder, categories]);
 
   if (error) {
     return (
