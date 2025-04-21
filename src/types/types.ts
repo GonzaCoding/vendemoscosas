@@ -9,6 +9,7 @@ export interface Product {
   category: string;
   sold: boolean;
   imageCount: number; // Number of images available for this product
+  lateDeliver?: boolean; // Optional flag for products with late delivery
 }
 
 /**

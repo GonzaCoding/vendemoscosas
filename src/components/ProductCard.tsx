@@ -10,6 +10,7 @@ import { useCart } from '@/contexts/CartContext';
 import { Plus, Trash2 } from 'lucide-react';
 import { trackProductView, trackAddToCart } from '@/lib/analytics';
 import { formatPrice } from '@/lib/price-utils';
+import { Badge } from '@/components/ui/badge';
 
 interface ProductCardProps {
   product: Product;
@@ -51,6 +52,14 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             className='object-contain'
             priority={false}
           />
+          {product.lateDeliver && (
+            <Badge
+              variant='default'
+              className='absolute top-2 right-2 bg-green-500 hover:bg-green-600'
+            >
+              Entrega Agosto
+            </Badge>
+          )}
         </div>
 
         <div className='flex flex-1 flex-col space-y-2 p-4'>

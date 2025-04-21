@@ -16,6 +16,7 @@ import { getProductImagePath } from '@/lib/product-utils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { trackAddToCart } from '@/lib/analytics';
 import { formatPrice } from '@/lib/price-utils';
+import { Badge } from '@/components/ui/badge';
 
 interface ProductDrawerProps {
   product: Product | null;
@@ -129,11 +130,21 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
                 <span className='text-2xl font-bold transition-colors duration-300'>
                   {formatPrice(product.price)}
                 </span>
-                {product.sold && (
-                  <span className='text-sm text-muted-foreground transition-colors duration-300'>
-                    Sold
-                  </span>
-                )}
+                <div className='flex items-center gap-2'>
+                  {product.lateDeliver && (
+                    <Badge
+                      variant='default'
+                      className='bg-green-500 hover:bg-green-600'
+                    >
+                      Entrega Agosto
+                    </Badge>
+                  )}
+                  {product.sold && (
+                    <span className='text-sm text-muted-foreground transition-colors duration-300'>
+                      Sold
+                    </span>
+                  )}
+                </div>
               </div>
 
               <p className='text-muted-foreground transition-colors duration-300'>
