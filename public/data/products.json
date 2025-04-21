@@ -160,7 +160,7 @@
     "price": 120000,
     "description": "Se entrega en Agosto. Funciona perfectamente.",
     "category": "Electrodomesticos",
-    "sold": false,
+    "sold": true,
     "imageCount": 2,
     "lateDeliver": true
   },
@@ -181,8 +181,7 @@
     "description": "Se entrega en Agosto.",
     "category": "Muebles",
     "sold": false,
-    "imageCount": 2,
-    "lateDeliver": true
+    "imageCount": 2
   },
   {
     "id": "021",
