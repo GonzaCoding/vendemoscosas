@@ -92,11 +92,11 @@
   {
     "id": "011",
     "title": "Auriculares gamer MOON",
-    "price": 10000,
+    "price": 5000,
     "description": "No le funciona el micrófono, pero los altavoces funcionan bien. Tiene un pequeño detalle en la parte exterior de la cuerina, pero no donde apoya la oreja.",
     "category": "Electronica",
     "sold": false,
-    "imageCount": 2
+    "imageCount": 3
   },
   {
     "id": "012",
@@ -115,5 +115,83 @@
     "category": "Electronica",
     "sold": false,
     "imageCount": 3
+  },
+  {
+    "id": "014",
+    "title": "Auriculares con micrófono",
+    "price": 5000,
+    "description": "Funciona perfecto",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "015",
+    "title": "Camas niños juego de 2",
+    "price": 320000,
+    "description": "La cama de abajo se puede guardar dentro de la otra. No incluye cajonera, ni barandas blancas ni cambiador. Solo las camas, tobogan, escalera y baranda roja.",
+    "category": "Muebles",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "016",
+    "title": "Heladera con freezer Whirlpool French Door WRO80 541L",
+    "price": 1200000,
+    "description": "Se entrega en Agosto. Funciona perfectamente, tiene 2 años. Hace hielo automático.",
+    "category": "Electrodomesticos",
+    "sold": false,
+    "imageCount": 7,
+    "lateDeliver": true
+  },
+  {
+    "id": "017",
+    "title": "Lavavajillas Drean Dish 15.2",
+    "price": 620000,
+    "description": "Se entrega en Agosto. Funciona perfectamente, tiene 1 año.",
+    "category": "Electrodomesticos",
+    "sold": false,
+    "imageCount": 3,
+    "lateDeliver": true
+  },
+  {
+    "id": "018",
+    "title": "Microondas Grill Atma MD1823 23L",
+    "price": 120000,
+    "description": "Se entrega en Agosto. Funciona perfectamente.",
+    "category": "Electrodomesticos",
+    "sold": false,
+    "imageCount": 2,
+    "lateDeliver": true
+  },
+  {
+    "id": "019",
+    "title": "PS5 1TB Playstation 5 con 2 joysticks y cargador",
+    "price": 700000,
+    "description": "Se entrega en Agosto. Tiene para poner discos. El cargador de joysticks a veces hace juego y no carga, hay que agarrarle la mano.",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 3,
+    "lateDeliver": true
+  },
+  {
+    "id": "020",
+    "title": "Mueble antiguo de madera cajonera de 4 cajones",
+    "price": 250000,
+    "description": "Se entrega en Agosto.",
+    "category": "Muebles",
+    "sold": false,
+    "imageCount": 2,
+    "lateDeliver": true
+  },
+  {
+    "id": "021",
+    "title": "Juego 2 mesitas de luz antiguas",
+    "price": 200000,
+    "description": "Se entrega en Agosto.",
+    "category": "Muebles",
+    "sold": false,
+    "imageCount": 2,
+    "lateDeliver": true
   }
 ]
