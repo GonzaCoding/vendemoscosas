@@ -192,5 +192,14 @@
     "sold": false,
     "imageCount": 2,
     "lateDeliver": true
+  },
+  {
+    "id": "022",
+    "title": "Monitor LG 22 pulgadas",
+    "price": 100000,
+    "description": "Funciona perfecto, con caja original. Modelo 22MN430.",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 2
   }
 ]
