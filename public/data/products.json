@@ -113,7 +113,7 @@
     "price": 500000,
     "description": "Funciona perfecto, incluye soporte para pared.",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 3
   },
   {
