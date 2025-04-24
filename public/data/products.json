@@ -86,7 +86,7 @@
     "price": 60000,
     "description": "Tetera, azucarera, tazas, platos, etc.",
     "category": "Cocina",
-    "sold": false,
+    "sold": true,
     "imageCount": 4
   },
   {
@@ -122,7 +122,7 @@
     "price": 5000,
     "description": "Funciona perfecto",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 2
   },
   {
