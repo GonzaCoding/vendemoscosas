@@ -32,7 +32,7 @@
     "price": 120000,
     "description": "En perfecto estado, falta pintura. Las ruedas funcionan excelente. Mueble 1: 2 estantes más 3 cajones con ruedas. 120 de ancho, 30 de profundidad, 99 de alto. Mueble 2: 1 estante más 3 cajones con ruedas. 120 de ancho, 30 de profundidad, 59 de alto. Mueble 3: colgante, 3 estantes, algunos compartimentos con tapas. 120 de ancho, 30 de profundidad, 80 de alto. ",
     "category": "Muebles",
-    "sold": false,
+    "sold": true,
     "imageCount": 4
   },
   {
