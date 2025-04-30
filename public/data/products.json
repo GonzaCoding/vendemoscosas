@@ -199,7 +199,7 @@
     "price": 100000,
     "description": "Funciona perfecto, con caja original. Modelo 22MN430.",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 2
   }
 ]
