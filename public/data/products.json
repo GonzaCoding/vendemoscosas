@@ -170,7 +170,7 @@
     "price": 700000,
     "description": "Se entrega en Agosto. Tiene para poner discos. El cargador de joysticks a veces hace juego y no carga, hay que agarrarle la mano.",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 3,
     "lateDeliver": true
   },
