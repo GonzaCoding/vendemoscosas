@@ -201,5 +201,14 @@
     "category": "Electronica",
     "sold": true,
     "imageCount": 2
+  },
+  {
+    "id": "023",
+    "title": "Arbol de navidad completo",
+    "price": 120000,
+    "description": "Incluye luces, guirnaldas, estrellas, etc.",
+    "category": "Varios",
+    "sold": false,
+    "imageCount": 4
   }
 ]
