@@ -59,7 +59,7 @@
     "price": 230000,
     "description": "TV Phillips 42 pulgadas, en perfecto estado, con sus apoyos",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 2
   },
   {
@@ -68,7 +68,7 @@
     "price": 190000,
     "description": "En perfecto estado, tiene youtube y netflix",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 4
   },
   {
