@@ -237,5 +237,32 @@
     "category": "Libros",
     "sold": false,
     "imageCount": 3
+  },
+  {
+    "id": "027",
+    "title": "Coleccion Florencia Bonelli Triologia del Perdon",
+    "price": 40000,
+    "description": "Coleccion de libros, en perfecto estado",
+    "category": "Libros",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "028",
+    "title": "Coleccion Florencia Bonelli El Cuarto Arcano",
+    "price": 30000,
+    "description": "Coleccion de libros, en perfecto estado",
+    "category": "Libros",
+    "sold": false,
+    "imageCount": 2
+  },
+  {
+    "id": "029",
+    "title": "Coleccion Florencia Bonelli Indias Blancas",
+    "price": 30000,
+    "description": "Coleccion de libros, en perfecto estado",
+    "category": "Libros",
+    "sold": false,
+    "imageCount": 2
   }
 ]
