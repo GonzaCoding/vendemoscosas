@@ -210,5 +210,14 @@
     "category": "Varios",
     "sold": false,
     "imageCount": 4
+  },
+  {
+    "id": "024",
+    "title": "Mesa de camping con 4 sillas",
+    "price": 60000,
+    "description": "Mesa plegable de plastico con 4 sillas para camping.",
+    "category": "Camping",
+    "sold": false,
+    "imageCount": 3
   }
 ]
