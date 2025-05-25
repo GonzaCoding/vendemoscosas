@@ -11,7 +11,7 @@
   {
     "id": "002",
     "title": "Heladera Comodoro antigua vintage simil madera",
-    "price": 140000,
+    "price": 130000,
     "description": "Era de mi abuela, ya la conocen, la usamos todos los años. Funciona, pero tiene detalles.",
     "category": "Electrodomesticos",
     "sold": false,
@@ -20,7 +20,7 @@
   {
     "id": "003",
     "title": "Saxofon alto Parquer Custom",
-    "price": 490000,
+    "price": 485000,
     "description": "Con un monton de accesorios, estuche, cañas, correas, trapos de limpieza.",
     "category": "Instrumentos musicales",
     "sold": false,
@@ -47,7 +47,7 @@
   {
     "id": "006",
     "title": "Juego de sillas de Jardin de aluminio blanco",
-    "price": 395000,
+    "price": 370000,
     "description": "Incluye 1 sillón de 2 cuerpos y 3 sillas de un cuerpo, con sus almohadones.",
     "category": "Muebles",
     "sold": false,
@@ -205,7 +205,7 @@
   {
     "id": "023",
     "title": "Arbol de navidad completo",
-    "price": 120000,
+    "price": 110000,
     "description": "Incluye luces, guirnaldas, estrellas, etc.",
     "category": "Varios",
     "sold": false,
