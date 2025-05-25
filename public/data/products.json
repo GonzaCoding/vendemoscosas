@@ -228,5 +228,14 @@
     "category": "Camping",
     "sold": false,
     "imageCount": 3
+  },
+  {
+    "id": "026",
+    "title": "Coleccion libros Julia Quinn Bridgerton",
+    "price": 140000,
+    "description": "Coleccion de libros de Bridgerton, en perfecto estado. 3 originales, el resto copias.",
+    "category": "Libros",
+    "sold": false,
+    "imageCount": 3
   }
 ]
