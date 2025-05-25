@@ -5,7 +5,7 @@
     "price": 420000,
     "description": "Perchero recibidor con espejo biselado, paragüero y detalles en madera. Tiene perchas de bronce. Medidas 225 de alto x 112 de ancho x 28 de profundidad",
     "category": "Muebles",
-    "sold": false,
+    "sold": true,
     "imageCount": 5
   },
   {
