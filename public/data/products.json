@@ -273,5 +273,14 @@
     "category": "Muebles",
     "sold": false,
     "imageCount": 2
+  },
+  {
+    "id": "031",
+    "title": "Alforja cuero ecologico",
+    "price": 40000,
+    "description": "Nunca usado, en perfecto estado",
+    "category": "Varios",
+    "sold": false,
+    "imageCount": 3
   }
 ]
