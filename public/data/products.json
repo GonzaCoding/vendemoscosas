@@ -264,5 +264,14 @@
     "category": "Libros",
     "sold": false,
     "imageCount": 2
+  },
+  {
+    "id": "030",
+    "title": "2 lamparas de pie de 1,80mts",
+    "price": 40000,
+    "description": "Juego de lamparas de pie de 1,80mts, en perfecto estado. Tiene solo 1 lampara",
+    "category": "Muebles",
+    "sold": false,
+    "imageCount": 2
   }
 ]
