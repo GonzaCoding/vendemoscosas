@@ -219,5 +219,14 @@
     "category": "Camping",
     "sold": false,
     "imageCount": 3
+  },
+  {
+    "id": "025",
+    "title": "Carpa Quechua 4 personas",
+    "price": 100000,
+    "description": "Carpa de hasta 4 personas, con entrada cubierta",
+    "category": "Camping",
+    "sold": false,
+    "imageCount": 3
   }
 ]
