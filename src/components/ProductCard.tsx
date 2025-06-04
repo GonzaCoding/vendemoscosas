@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { ProductDrawer } from './ProductDrawer';
 import { getPrimaryImage } from '@/lib/product-utils';
 import { useCart } from '@/contexts/CartContext';
-import { Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2, Camera } from 'lucide-react';
 import { trackProductView, trackAddToCart } from '@/lib/analytics';
 import { formatPrice } from '@/lib/price-utils';
 import { Badge } from '@/components/ui/badge';
@@ -52,6 +52,12 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             className='object-contain'
             priority={false}
           />
+          <Badge
+            variant='default'
+            className='absolute bottom-2 left-2 bg-black text-white dark:bg-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90'
+          >
+            {product.imageCount} <Camera className='h-3 w-3 ml-1' />
+          </Badge>
           {product.lateDeliver && (
             <Badge
               variant='default'
