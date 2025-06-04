@@ -291,5 +291,14 @@
     "category": "Varios",
     "sold": false,
     "imageCount": 3
+  },
+  {
+    "id": "033",
+    "title": "Notebook Dell Latitude 7480",
+    "price": 100000,
+    "description": "Bateria cambiada a nueva. 16GB de ram, 1TB de disco, procesador i5-7300U. Incluye cargador.",
+    "category": "Electronica",
+    "sold": false,
+    "imageCount": 4
   }
 ]
