@@ -2,7 +2,14 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight, Plus, Trash2 } from 'lucide-react';
+import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+  Trash2,
+  Camera,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
@@ -99,6 +106,13 @@ export function ProductDrawer({ product, onClose }: ProductDrawerProps) {
                   priority
                   onLoadingComplete={() => setIsImageLoading(false)}
                 />
+                <Badge
+                  variant='default'
+                  className='absolute top-2 right-2 bg-black text-white dark:bg-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90'
+                >
+                  {currentImageIndex + 1}/{product.imageCount}{' '}
+                  <Camera className='h-3 w-3 ml-1' />
+                </Badge>
 
                 {/* Navigation Buttons */}
                 {product.imageCount > 1 && (
