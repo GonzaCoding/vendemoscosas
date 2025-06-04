@@ -280,6 +280,15 @@
     "price": 40000,
     "description": "Nunca usado, en perfecto estado",
     "category": "Varios",
+    "sold": true,
+    "imageCount": 3
+  },
+  {
+    "id": "032",
+    "title": "Bicicleta rodado 20 de niño",
+    "price": 100000,
+    "description": "Tiene detalles, pero funciona",
+    "category": "Varios",
     "sold": false,
     "imageCount": 3
   }
