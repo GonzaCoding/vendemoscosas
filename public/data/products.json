@@ -300,5 +300,14 @@
     "category": "Electronica",
     "sold": false,
     "imageCount": 4
+  },
+  {
+    "id": "034",
+    "title": "Aspiradora inalambrica ATMA a bateria",
+    "price": 80000,
+    "description": "Aspiradora 2 en 1 model AS7921PI. Se puede usar con la base o sola.",
+    "category": "Electrodomesticos",
+    "sold": false,
+    "imageCount": 2
   }
 ]
