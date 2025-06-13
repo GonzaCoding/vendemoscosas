@@ -226,7 +226,7 @@
     "price": 100000,
     "description": "Carpa de hasta 4 personas, con entrada cubierta",
     "category": "Camping",
-    "sold": false,
+    "sold": true,
     "imageCount": 3
   },
   {
