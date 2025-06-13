@@ -298,7 +298,7 @@
     "price": 400000,
     "description": "Bateria cambiada a nueva. 16GB de ram, 1TB de disco, procesador i5-7300U. Incluye cargador.",
     "category": "Electronica",
-    "sold": true,
+    "sold": false,
     "imageCount": 4
   }
 ]
