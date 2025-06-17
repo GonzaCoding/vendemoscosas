@@ -41,7 +41,7 @@
     "price": 50000,
     "description": "Vaporera Peabody 12L, usada en perfecto estado.",
     "category": "Electrodomesticos",
-    "sold": false,
+    "sold": true,
     "imageCount": 1
   },
   {
@@ -104,7 +104,7 @@
     "price": 50000,
     "description": "Como nuevo en caja.",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 2
   },
   {
@@ -140,7 +140,7 @@
     "price": 1200000,
     "description": "Se entrega en Agosto. Funciona perfectamente, tiene 2 años. Hace hielo automático.",
     "category": "Electrodomesticos",
-    "sold": false,
+    "sold": true,
     "imageCount": 7,
     "lateDeliver": true
   },
@@ -298,7 +298,7 @@
     "price": 400000,
     "description": "Bateria cambiada a nueva. 16GB de ram, 1TB de disco, procesador i5-7300U. Incluye cargador.",
     "category": "Electronica",
-    "sold": false,
+    "sold": true,
     "imageCount": 4
   },
   {
@@ -307,7 +307,7 @@
     "price": 80000,
     "description": "Aspiradora 2 en 1 model AS7921PI. Se puede usar con la base o sola.",
     "category": "Electrodomesticos",
-    "sold": false,
+    "sold": true,
     "imageCount": 2
   }
 ]
