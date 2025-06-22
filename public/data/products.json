@@ -208,7 +208,7 @@
     "price": 110000,
     "description": "Incluye luces, guirnaldas, estrellas, etc.",
     "category": "Varios",
-    "sold": false,
+    "sold": true,
     "imageCount": 4
   },
   {
