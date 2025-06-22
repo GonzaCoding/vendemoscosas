@@ -309,5 +309,24 @@
     "category": "Electrodomesticos",
     "sold": true,
     "imageCount": 2
+  },
+  {
+    "id": "035",
+    "title": "Juego de 6 sillas de aluminio",
+    "price": 160000,
+    "description": "Apilables. Incluye almohadones.",
+    "category": "Muebles",
+    "sold": false,
+    "imageCount": 3
+  },
+  {
+    "id": "036",
+    "title": "Lavarropa Candy carga frontal 8kg",
+    "price": 400000,
+    "description": "Funciona. 1200 RPM, smart.",
+    "category": "Electrodomesticos",
+    "sold": false,
+    "imageCount": 3,
+    "lateDeliver": true
   }
 ]
