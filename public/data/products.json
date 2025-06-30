@@ -316,7 +316,7 @@
     "price": 160000,
     "description": "Apilables. Incluye almohadones.",
     "category": "Muebles",
-    "sold": false,
+    "sold": true,
     "imageCount": 3
   },
   {
