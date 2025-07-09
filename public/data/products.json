@@ -23,7 +23,7 @@
     "price": 470000,
     "description": "Con un monton de accesorios, estuche, cañas, correas, trapos de limpieza.",
     "category": "Instrumentos musicales",
-    "sold": false,
+    "sold": true,
     "imageCount": 8
   },
   {
@@ -217,7 +217,7 @@
     "price": 60000,
     "description": "Mesa plegable de plastico con 4 sillas para camping.",
     "category": "Camping",
-    "sold": false,
+    "sold": true,
     "imageCount": 3
   },
   {
